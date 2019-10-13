@@ -38,19 +38,19 @@ namespace HafızaOyunu
 
             Label clickedLabel = sender as Label;
 
-            //if (clickedLabel == null)
-            //{
-               
-            //    return;
-            //}
-                
+            if (clickedLabel == null)
+            {
 
-            //if (clickedLabel.ForeColor == Color.Black)
-            //{
+                return;
+            }
 
-            //    return;
-            //}
-            
+
+            if (clickedLabel.ForeColor == Color.Black)
+            {
+
+                return;
+            }
+
 
             if (birinci == null)
             {
