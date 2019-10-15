@@ -29,37 +29,39 @@ namespace HafızaOyunu
             timer2.Start();
 
         }
-        int oyuncuBir = 0, oyuncuİki = 0;
+        int playerOne = 0, playerTwo = 0;
         private void label1_Click(object sender, EventArgs e)
         {
             
             if (birinci != null && ikinci != null)
                 return;
 
-            Label clickedLabel = sender as Label;
+            Label labelTiklama = sender as Label;
 
-            if (clickedLabel == null)
+            if (labelTiklama == null)
             {
 
                 return;
             }
 
 
-            if (clickedLabel.ForeColor == Color.Black)
+            if (labelTiklama.ForeColor == Color.Black)
             {
-
+                
                 return;
             }
 
 
             if (birinci == null)
             {
-                birinci = clickedLabel;
+                birinci = labelTiklama;
                 birinci.ForeColor = Color.Black;
+                timer3.Start();
                 return;
+                
             }
 
-            ikinci = clickedLabel;
+            ikinci = labelTiklama;
             ikinci.ForeColor = Color.Black;
 
 
@@ -71,7 +73,7 @@ namespace HafızaOyunu
             }
             else
                 timer1.Start();
-            timer3.Start();
+           // timer3.Start();
         }
 
         private void Kazanan()
@@ -98,29 +100,25 @@ namespace HafızaOyunu
         int sayac = 5;
         int sayac2 = 5;
         private void timer3_Tick(object sender, EventArgs e)
-        {
-            Label label;
-            sayac2--;
-           
-
-            //if (sayac2 == 0) 
+        {          
+           sayac2--;
+            if (sayac2 == 0)
+            {
+                sayac2 = 5;
+                birinci.ForeColor = BackColor;
+                MessageBox.Show("ikinci oyuncu");
+                birinci = null;
+                ikinci = null;
+                timer3.Stop();                
+            }
+  
+            //if (ikinci.ForeColor == Color.Black)
             //{
-                
             //    sayac2 = 5;
-                
+            //    timer3.Stop();
             //}
-            //if(birinci.Text!=ikinci.Text)
-            //    MessageBox.Show("sıra ikinci oyuncuda");
-
-
-
-            //Label label;
-            //for (int i = 0; i < tableLayoutPanel1.Controls.Count; i++)
-            //{
-            //    label = tableLayoutPanel1.Controls[i] as Label;
-            //}
+            
         }
-
         private void timer2_Tick(object sender, EventArgs e)
         {
             sayac--;
@@ -137,13 +135,7 @@ namespace HafızaOyunu
                     timer2.Stop();
                 }
             }
-            
-
-
-
-
         }
-
         private void ResimEkle()
         {
             Label label;
